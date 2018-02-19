@@ -16683,52 +16683,37 @@ var _user$project$Cards$Raise = F2(
 	function (a, b) {
 		return {ctor: 'Raise', _0: a, _1: b};
 	});
+var _user$project$Cards$optionsValue = F3(
+	function (elev, post, k) {
+		return _debois$elm_mdl$Material_Options$many(
+			{
+				ctor: '::',
+				_0: elev,
+				_1: {
+					ctor: '::',
+					_0: _debois$elm_mdl$Material_Elevation$transition(300),
+					_1: {
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Options$onMouseEnter(
+							A2(_user$project$Cards$Raise, post, k)),
+						_1: {
+							ctor: '::',
+							_0: _debois$elm_mdl$Material_Options$onMouseLeave(
+								A2(_user$project$Cards$Raise, post, -1)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			});
+	});
 var _user$project$Cards$dynamic = F3(
 	function (k, model, post) {
 		var raised = A2(_elm_lang$core$Dict$get, post.id, model.raised);
 		var _p0 = raised;
 		if (_p0.ctor === 'Just') {
-			return _debois$elm_mdl$Material_Options$many(
-				{
-					ctor: '::',
-					_0: _elm_lang$core$Native_Utils.eq(_p0._0, k) ? _debois$elm_mdl$Material_Elevation$e8 : _debois$elm_mdl$Material_Elevation$e2,
-					_1: {
-						ctor: '::',
-						_0: _debois$elm_mdl$Material_Elevation$transition(300),
-						_1: {
-							ctor: '::',
-							_0: _debois$elm_mdl$Material_Options$onMouseEnter(
-								A2(_user$project$Cards$Raise, post, k)),
-							_1: {
-								ctor: '::',
-								_0: _debois$elm_mdl$Material_Options$onMouseLeave(
-									A2(_user$project$Cards$Raise, post, -1)),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				});
+			return _elm_lang$core$Native_Utils.eq(_p0._0, k) ? A3(_user$project$Cards$optionsValue, _debois$elm_mdl$Material_Elevation$e8, post, k) : A3(_user$project$Cards$optionsValue, _debois$elm_mdl$Material_Elevation$e2, post, k);
 		} else {
-			return _debois$elm_mdl$Material_Options$many(
-				{
-					ctor: '::',
-					_0: _debois$elm_mdl$Material_Elevation$e2,
-					_1: {
-						ctor: '::',
-						_0: _debois$elm_mdl$Material_Elevation$transition(300),
-						_1: {
-							ctor: '::',
-							_0: _debois$elm_mdl$Material_Options$onMouseEnter(
-								A2(_user$project$Cards$Raise, post, k)),
-							_1: {
-								ctor: '::',
-								_0: _debois$elm_mdl$Material_Options$onMouseLeave(
-									A2(_user$project$Cards$Raise, post, -1)),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				});
+			return A3(_user$project$Cards$optionsValue, _debois$elm_mdl$Material_Elevation$e2, post, k);
 		}
 	});
 var _user$project$Cards$viewEntry = F2(

@@ -91,6 +91,16 @@ margin2 =
     css "margin" "4px 8px 4px 0px"
 
 
+optionsValue : Options.Property c Msg -> Post -> Int -> Options.Property c Msg
+optionsValue elev post k =
+    [ elev
+    , Elevation.transition 300
+    , Options.onMouseEnter (Raise post k)
+    , Options.onMouseLeave (Raise post -1)
+    ]
+        |> Options.many
+
+
 dynamic : Int -> AppModel -> Post -> Options.Style Msg
 dynamic k model post =
     let
@@ -99,23 +109,13 @@ dynamic k model post =
     in
         case raised of
             Just value ->
-                [ if value == k then
-                    Elevation.e8
-                  else
-                    Elevation.e2
-                , Elevation.transition 300
-                , Options.onMouseEnter (Raise post k)
-                , Options.onMouseLeave (Raise post -1)
-                ]
-                    |> Options.many
+                if value == k then
+                    optionsValue Elevation.e8 post k
+                else
+                    optionsValue Elevation.e2 post k
 
             Nothing ->
-                [ Elevation.e2
-                , Elevation.transition 300
-                , Options.onMouseEnter (Raise post k)
-                , Options.onMouseLeave (Raise post -1)
-                ]
-                    |> Options.many
+                optionsValue Elevation.e2 post k
 
 
 
