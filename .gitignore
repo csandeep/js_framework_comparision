@@ -1,3 +1,5 @@
 server/node_modules
 elm_app/elm-stuff
 elm_app/node_modules
+react_app/node_modules
+react_app/build
